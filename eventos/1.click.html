@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+  <title>Prueba Vue</title> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>   
+</head>
+<body>
+  <div id="aplicacion">
+    <input type="number" name="number1" v-model="number1" placeholder="Numero 1"><br>
+    <br>
+    <input type="number" name="number2" v-model="number2" placeholder="Numero 2"><br>
+    <br>
+    <input type="submit" v-on:click="suma">
+    <p>{{ result }}</p>
+  </div>
+  
+  <script>
+  var app = new Vue({
+    el:'#aplicacion',
+    data:{
+      number1: 0,
+      number2: 0,
+      result: 0
+    },
+    methods:{
+      suma: function(){
+        this.result = parseInt(this.number1) + parseInt(this.number2)
+      }
+    }
+  })
+</script>
+</body>
+</html>

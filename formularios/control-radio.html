@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>radio</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.0/vue.js"></script>
+</head>
+<body>
+	<div id="main" class="container">
+		<br>
+		<input type="text" name="numero1" v-model="numero1" placeholder="Ingrese numero 1"><br>
+		<br>
+		<input type="text" name="numero2" v-model="numero2" placeholder="Ingrese numero 2"><br>
+		<br>
+
+		<input type="radio" value="Suma" v-model="operacion">
+  		<label for="Suma">Suma</label><br>
+  		<br>
+  		<input type="radio" value="Resta" v-model="operacion">
+  		<label for="Resta">Resta</label><br>
+  		<br>
+  		<button v-on:click="calcular">Operar</button>
+  		<p>{{ resultado }}</p>
+	</div>
+	<script type="text/javascript">
+		new Vue({
+			el: '#main',
+			data: {
+				numero1: 0,
+				numero2: 0,
+				operacion: 'Suma',
+				resultado: ''
+			},
+			methods:{
+				calcular:function(){
+					if(this.operacion == 'Suma'){
+						this.resultado = parseInt(this.numero1) + parseInt(this.numero2)  
+					}else{
+						this.resultado = parseInt(this.numero1) - parseInt(this.numero2)
+					}
+				}
+			}
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+  <title>Prueba Vue</title> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>   
+</head>
+<body>
+  <div id="aplicacion">
+    <table border="1">
+      <thead>
+        <tr>
+          <th colspan="3">Listado de Personas</th>
+        </tr>
+        <tr>
+          <th>Nombre</th>
+          <th>Edad</th>
+          <th>Informacion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <template v-for="persona in personas">
+          <tr>
+            <td>{{ persona.nombre }}</td>
+            <td>{{ persona.edad }}</td>
+            <td v-if="persona.edad >= 18">Mayor de Edad</td>
+            <td v-else>Menor de Edad</td>
+          </tr>
+        </template>
+      </tbody>
+    </table>
+  </div>
+  
+  <script>
+  var app = new Vue({
+    el:'#aplicacion',
+    data:{
+      personas: [
+        {
+        nombre: 'Jose', 
+        edad: 12
+        },
+        {
+         nombre: 'Ana', 
+         edad: 43
+        },
+        {
+         nombre: 'Pedro', 
+         edad: 4
+        },
+        {
+         nombre: 'María', 
+         edad: 12 
+        }
+      ]
+    }
+  })
+</script>
+</body>
+</html>

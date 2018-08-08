@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Componenetes</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="aplicacion">
+        <dias-semana></dias-semana>
+        <hr>
+        <dias-semana>
+            <h1 slot-scope="valor">
+                {{valor.nombre}}
+            </h1>
+        </dias-semana>
+        <hr>
+        <dias-semana>
+            <p slot-scope="valor">
+                Día:{{valor.nombre}}
+            </p>
+        </dias-semana>
+        <h2>Ejemplo 2</h2>
+        <numero-aleatorio v-bind:minimo="1" v-bind:maximo="100"></numero-aleatorio>
+        <numero-aleatorio v-bind:minimo="1" v-bind:maximo="100">
+            <span slot-scope="dato" style="background:black;color:white;font-size:2rem">{{dato.numero}}</span>
+        </numero-aleatorio>
+    </div>
+    <script>
+        Vue.component('dias-semana', {
+            template: `<div><slot v-for="dia in dias" v-bind:nombre="dia">{{dia}}-</slot></div>`,
+            data: function () {
+                return {
+                    dias: ['lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado', 'domingo']
+                }
+            }
+        })
+
+        Vue.component('numero-aleatorio', {
+            props: ['minimo', 'maximo'],
+            template: `<div><slot v-bind:numero="numero">{{numero}}</slot></div>`,
+            data: function () {
+                return {
+                    numero: Math.trunc(Math.random() * (this.maximo + 1 - this.minimo) + this.minimo)
+                }
+            }
+        })
+        
+        new Vue({
+            el: '#aplicacion'
+        })
+    </script>
+</body>
+
+</html>

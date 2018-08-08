@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>propiedades computadas</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.0/vue.js"></script>
+</head>
+<body>
+	<div id="main" class="container">
+		<p>Ingrese nombre:<input type="text" v-model="nombre"></p>
+	   	<p>email propuesto:{{email}}</span></p>
+	</div>
+	<script type="text/javascript">
+		new Vue({
+			el: '#main',
+			data: {
+				nombre: ''		
+			},
+			computed:{
+        email: function () {
+          if (this.nombre.length > 0)
+            return this.nombre + '@totalmail.com';
+          else
+            return '';
+        }
+		  }
+		});
+	</script>
+</body>
+</html>

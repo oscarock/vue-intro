@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Componenetes</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="aplicacion">
+        <barra-botones></barra-botones>
+        <hr>
+        <barra-botones>
+            <button>Alta</button>
+            <button>Baja</button>
+            <button>Modificacion</button>
+        </barra-botones>
+        <h3>ejemplo 2</h3>
+        <buscadores>
+            <a href="https://duckduckgo.com">duckduckgo</a>
+            <a href="https://ask.fm">Ask</a>
+        </buscadores>
+    </div>
+    <script>
+        Vue.component('barra-botones', {
+            template: `
+                <div><button>Confirmar</button>
+                <button>Cancelar</button>
+                <slot><a href="#">Otras opciones</a></slot>
+                </div>`
+        })
+
+        Vue.component('buscadores', {
+            template: `<div>
+               <a href="https://www.google.com">Google</a>
+               <a href="https://www.yahoo.com">Yahoo</a>
+               <a href="https://www.bing.com">Bing</a>
+               <slot></slot>
+             </div>`
+        })
+
+        new Vue({
+            el: '#aplicacion'
+        })
+    </script>
+</body>
+
+</html>

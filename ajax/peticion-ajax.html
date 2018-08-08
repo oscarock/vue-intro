@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Peticones ajax</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.0/vue.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.1/axios.min.js"></script>
+</head>
+
+<body>
+	<div id="main" class="container">
+		<button v-on:click="recuperarArticulos">Recuperar artículos</button>
+		<br>
+		<br>
+		<table border="1">
+			<tr>
+				<td>Código</td>
+				<td>Descripción</td>
+				<td>Precio</td>
+			</tr>
+			<tr v-for="articulo in articulos">
+				<td>{{articulo.codigo}}</td>
+				<td>{{articulo.descripcion}}</td>
+				<td>{{articulo.precio}}</td>
+			</tr>
+		</table>
+	</div>
+	<script type="text/javascript">
+		new Vue({
+			el: '#main',
+			data: {
+				articulos: []
+			},
+			/*created: function(){
+				this.recuperarArticulos()
+			},*/
+			methods: {
+				recuperarArticulos: function () {
+					axios.get('http://scratchya.com.ar/vue/datos.php').then(response => {
+						this.articulos = response.data
+					})
+				}
+			}
+		});
+	</script>
+</body>
+
+</html>

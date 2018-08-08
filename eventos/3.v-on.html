@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>on</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.0/vue.js"></script>
+</head>
+<body>
+	<div id="main" class="container">
+		<form action="" v-on:submit.prevent="calcularNumeros">
+			<br>
+			<input type="number" name="numero1" v-model="numero1" placeholder="Ingrese numero 1"><br>
+			<br>
+			<input type="number" name="numero2" v-model="numero2" placeholder="Ingrese numero 2"><br>
+			<br>
+			<input type="submit" value="Enviar">
+			<br>
+			<p>{{ result }}</p>
+		</form>
+	</div>
+	<script type="text/javascript">
+		new Vue({
+			el: '#main',
+			data: {
+				numero1: 0,
+				numero2: 0,
+				result: ''
+			},
+			methods:{
+				calcularNumeros: function(){
+					var cadena = ""
+					for(var f = this.numero1; f <= this.numero2; f++) {
+			            cadena += f + '-';
+		          	}
+					this.result = cadena
+				}	
+			}
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>checkbox</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.0/vue.js"></script>
+</head>
+<body>
+	<div id="main" class="container">
+		<p><input type="checkbox" v-model="dias" value="Lunes">Lunes</p>
+		<p><input type="checkbox" v-model="dias" value="Martes">Martes</p>
+		<p><input type="checkbox" v-model="dias" value="Miercoles">Miercoles</p>
+		<p><input type="checkbox" v-model="dias" value="Jueves">Jueves</p>
+		<p><input type="checkbox" v-model="dias" value="Viernes">Viernes</p>
+		<p><input type="checkbox" v-model="dias" value="Sabado">Sabado</p>
+		<p><input type="checkbox" v-model="dias" value="Domingo">Domingo</p>
+		<p v-if="dias.length < 3" style="color:red">Debe seleccionar por lo menos 3 días</p>
+		<br>
+		<h4>Dias Selecionados</h4>
+		<ul>
+			<li v-for="dia in dias">{{ dia }}</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		new Vue({
+			el: '#main',
+			data: {
+				dias: []
+			},
+			methods:{
+			
+			}
+		});
+	</script>
+</body>
+</html>

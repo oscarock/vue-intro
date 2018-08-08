@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>v-bind enlace estilos css</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.0/vue.js"></script>
+	<style>
+	    .faltastock {
+	      background-color: yellow;
+	      color: blue;
+	      font-style: italic;            
+	    }
+	    .tachar {
+	         text-decoration: line-through;
+	         color: blue;
+	    }
+  	</style>
+</head>
+<body>
+	<div id="main" class="container">
+		<table border="1">
+	      <tr><td>Código</td><td>Descripción</td><td>Precio</td><td>Stock</td></tr>
+	      <template v-for="articulo in articulos">
+	        <tr v-bind:class="{faltastock: articulo.stock===0}">
+	          <td>{{articulo.codigo}}</td>
+	          <td>{{articulo.descripcion}}</td>
+	          <td>{{articulo.precio}}</td>
+	          <td>{{articulo.stock}}</td>          
+	        </tr>
+	      </template>
+	    </table>
+	    <h4>Ejemplo 2</h4>
+	    <ul style="font-size:2rem; list-style:none">
+          <li v-for="lenguaje in lenguajes"
+              v-on:click="presion(lenguaje)"
+              v-bind:class="{tachar: lenguaje.tachado }">
+            {{lenguaje.nombre}}
+          </li>
+        </ul>
+	</div>
+	<script type="text/javascript">
+		new Vue({
+			el: '#main',
+			data: {
+				articulos: [{
+	                codigo: 1, 
+	                descripcion: 'papas',
+	                precio: 12.52,
+	                stock: 10
+	               },{
+	                codigo: 2, 
+	                descripcion: 'naranjas',
+	                precio: 21,
+	                stock: 0
+	               },{
+	                codigo: 3, 
+	                descripcion: 'peras',
+	                precio: 18.20,
+	                stock: 0
+	               },{
+	                codigo: 4, 
+	                descripcion: 'duraznos',
+	                precio: 35,
+	                stock: 20                     
+               	}],
+               	lenguajes: [
+	   	          {
+	   	            nombre: 'C',
+	   	            tachado:false
+	   	          },
+	   	          {
+	   	            nombre: 'Java',
+	   	            tachado:false
+	   	          },
+	   	          {
+	   	            nombre: 'PHP',
+	   	            tachado:false
+	   	          },
+	   	          {
+	   	            nombre: 'Python',
+	   	            tachado:false
+	   	          },
+	   	          {
+	   	            nombre: 'Ruby',
+	   	            tachado:false
+	   	          },
+	   	          {
+	   	            nombre: 'Kotlin',
+	   	            tachado:false
+	   	          },
+	   	          {
+	   	            nombre: 'C#',
+	   	            tachado:false
+	   	        }]    			
+			},
+			methods: {
+		        presion: function(lenguaje) {
+		          lenguaje.tachado=true;
+		        }
+		    }
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+  <title>Componenetes</title> 
+  <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>   
+</head>
+<body>
+  <div id="aplicacion" >
+    <select v-model="idioma">
+        <option>español</option>
+        <option>ingles</option>
+    </select>
+    <hola-mundo v-bind:idioma="idioma"></hola-mundo>
+  </div>
+  <script>
+   Vue.component('hola-mundo', {
+     props: ['idioma'],
+     template: `<div>
+                  <p v-if="idioma=='español'">Hola mundo</p>
+                  <p v-if="idioma=='ingles'">Hello world</p>
+                </div>`
+   }) 
+   new Vue({
+    el:'#aplicacion',
+    data:{
+       idioma: "español"
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>keypress</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.0/vue.js"></script>
+</head>
+<body>
+	<div id="main" class="container">
+		<input type="text" name="frase" v-on:keyup.enter="frase" v-model="stringFrase" placeholder="Ingrese frase"><br>
+		<p>{{ result }}</p>
+	</div>
+	<script type="text/javascript">
+		new Vue({
+			el: '#main',
+			data: {
+				stringFrase: '',
+				result: 0
+			},
+			methods:{
+				frase: function(){
+					try {
+					  this.result = this.stringFrase.match(/[a]/gi).length
+					}
+					catch(error) {
+					 this.result = "Sin resultados"
+					}
+				}
+			}
+		});
+	</script>
+</body>
+</html>

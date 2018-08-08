@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+  <title>Prueba Vue</title> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>   
+</head>
+<body>
+  <div id="aplicacion">
+  	<input type="password" name="password" v-model="pass"><br>
+  	<br>
+  	<input type="password" name="confirm" v-model="confirm">
+  	<div v-show="pass != ''">
+  		<p v-if="pass == confirm">Los password son iguales</p>
+  		<p v-else>Los password no son iguales</p>
+  	</div>
+  </div>
+  
+  <script>
+  var app = new Vue({
+    el:'#aplicacion',
+    data:{
+      pass: '',
+      confirm: ''
+    }
+  })
+</script>
+</body>
+</html>

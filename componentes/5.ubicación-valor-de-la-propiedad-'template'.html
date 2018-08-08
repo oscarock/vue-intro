@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Componenetes</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="aplicacion">
+        <h3>Ejemplo 1</h3>
+        <dias-semana seleccionado="lunes"></dias-semana>
+        <template id="dias-semana">
+            <div style="display: flex; flex-direction:row;justify-content:space-between;background:#ff0;font-size:1.5rem">
+                <div v-for="dia in dias">
+                    <span v-if="seleccionado==dia" style="background:#000;color:#fff">{{dia}}</span>
+                    <span v-else>{{dia}}</span>
+                </div>
+            </div>
+        </template>
+    </div>
+    <!-- Segunda forma declarar el template -->
+    <!-- <script id="dias-semana" type="text/template">
+        <div style="display: flex; flex-direction:row;justify-content:space-between;background:#ff0;font-size:1.5rem">
+          <div v-for="dia in dias">
+            <span v-if="seleccionado==dia" style="background:#000;color:#fff">{{dia}}</span>
+            <span v-else>{{dia}}</span>
+          </div>
+        </div>
+    </script> -->
+    <!-- Fin Segunda forma declarar el template -->
+    <script>
+        Vue.component('dias-semana', {
+            props: ['seleccionado'],
+            template: '#dias-semana',
+            data: function () {
+                return {
+                    dias: ['lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado', 'domingo']
+                }
+            }
+        });
+
+        new Vue({
+            el: '#aplicacion',
+            data: {
+                dias: ""
+            }
+        })
+    </script>
+</body>
+
+</html>
