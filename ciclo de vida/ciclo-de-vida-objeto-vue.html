@@ -17,13 +17,33 @@
       console.log("beforeCreate");
     },
     created() {
+      //al crear los metodos, eventos pero aun no accede al DOM
+      //aun no se puede acceder al elemento 'el'
       console.log("created");
     },
-    beforeMount() { 
+    beforeMount() {
+      //se ejecuta antes de insertar el DOM
       console.log("beforeMounted");
     },
     mounted() {
+      //se ejecuta al insertar el DOM
       console.log("mounted");
+    },
+    beforeUpdate() {
+      //al detectar un cambio
+      console.log("beforeUpdate");
+    },
+    updated() {
+      //al realizar los cambios
+      console.log("updated");
+    },
+    beforeDestroy() {
+      //antes de destruir la instancia
+      console.log("beforeDestroy");
+    },
+    destroy() {
+      //se destruye toda la instancia
+      console.log("destroy");
     },
   })
 </script>
