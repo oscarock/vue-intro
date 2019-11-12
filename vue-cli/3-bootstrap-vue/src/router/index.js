@@ -23,6 +23,16 @@ const routes = [
     name: 'grid',
     component: () => import(/* webpackChunkName: "grid" */ '../views/Grid.vue')
   },
+  {
+    path: '/buttons',
+    name: 'buttons',
+    component: () => import(/* webpackChunkName: "buttons" */ '../views/Buttons.vue')
+  },
+  {
+    path: '/cards',
+    name: 'cards',
+    component: () => import(/* webpackChunkName: "cards" */ '../views/Cards.vue')
+  },
 ]
 
 const router = new VueRouter({
