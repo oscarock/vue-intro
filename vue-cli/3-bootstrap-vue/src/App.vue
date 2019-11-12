@@ -12,6 +12,7 @@
             <b-nav-item :to="{name: 'grid'}">Grid</b-nav-item>
             <b-nav-item :to="{name: 'buttons'}">Buttons</b-nav-item>
             <b-nav-item :to="{name: 'cards'}">Cards</b-nav-item>
+            <b-nav-item :to="{name: 'forms'}">Forms</b-nav-item>
           </b-navbar-nav>
         </b-collapse>
       </b-container>
